@@ -17,7 +17,7 @@ Aseg&uacute;rate de tener instalados los siguientes elementos en tu m&aacute;qui
 - Clona el repositorio a tu m&aacute;quina local usando el siguiente comando:
 
    ```bash
-   git clone https://github.com/tu-usuario/tu-repositorio.git
+   git clone https://github.com/Castilloo/Solution-Toker.es.git
    ```
 
 - Navega al directorio del proyecto.
@@ -34,7 +34,8 @@ Aseg&uacute;rate de tener instalados los siguientes elementos en tu m&aacute;qui
     dotnet restore
     ```
 
-> [!NOTE] Para más información dirigirse al link de Microsoft [aquí](https://learn.microsoft.com/es-es/nuget/consume-packages/package-restore#restore-using-visual-studio) .
+> [!NOTE]
+> Para más información dirigirse al link de Microsoft [aquí](https://learn.microsoft.com/es-es/nuget/consume-packages/package-restore#restore-using-visual-studio) .
 
 ## Ejecutar la api
 
