@@ -2,4 +2,9 @@ UsersApiSolution/.vs
 UsersApiSolution/.vscode
 .vs
 .vscode
+Tests/bin
+Tests/obj
+UsersApiSolution/bin
+UsersApiSolution/obj
+
 

@@ -15,15 +15,12 @@ namespace Tests.Repository
 
         public UserRepositoryTest()
         {
-            // Crear un DbContext en memoria para simular la base de datos
             _context = new ApiContext(new DbContextOptionsBuilder<ApiContext>()
                 .UseInMemoryDatabase(databaseName: "TestDb")
                 .Options);
 
-            // Crear un mock de ILogger
             _logger = A.Fake<ILogger<UserRepository>>();
 
-            // Crear una instancia del repositorio con las dependencias mockeadas
             _userRepository = new UserRepository(_context, _logger);
         }
 
@@ -41,26 +38,8 @@ namespace Tests.Repository
             var result = await _userRepository.CreateUserAsync(user);
 
             // Assert
-            Assert.Equal(1, result);  // Si se guardó el usuario, se espera que `SaveChangesAsync` devuelva 1.
+            Assert.Equal(1, result);  
         }
-
-        //[Fact]
-        //public async Task CreateUserAsync_ShouldReturnZero_WhenPhoneIsInvalid()
-        //{
-        //    // Arrange
-        //    var user = new User
-        //    {
-        //        Nombre = "Juan",
-        //        Telefono = "invalid_phone"
-        //    };
-
-        //    // Act
-        //    var result = await _userRepository.CreateUserAsync(user);
-
-        //    // Assert
-        //    Assert.Equal(0, result);  // Se espera que el resultado sea 0 si el teléfono no es válido.
-        //    A.CallTo(() => _logger.LogError(A<string>.Ignored)).MustHaveHappened();  // Verifica que se haya registrado un error
-        //}
 
         [Fact]
         public async Task GetUsersAsync_ShouldReturnUsers()
@@ -81,19 +60,5 @@ namespace Tests.Repository
             Assert.Equal(2, users.Count);
         }
 
-        //[Fact]
-        //public async Task GetUsersAsync_ShouldThrowException_WhenDbFails()
-        //{
-        //    // Simula un fallo en la base de datos
-        //    var faultyContext = A.Fake<ApiContext>();
-        //    var users = await faultyContext.Users.ToListAsync();
-
-        //    A.CallTo(() => users).Throws(new Exception("Database failure"));
-
-        //    var faultyRepository = new UserRepository(faultyContext, _logger);
-
-        //    // Act & Assert
-        //    await Assert.ThrowsAsync<Exception>(() => faultyRepository.GetUsersAsync());
-        //}
     }
 }
